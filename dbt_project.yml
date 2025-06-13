@@ -37,6 +37,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   OpenF1:
-    +dataset: openf1_livetiming
     +materialized: table
     

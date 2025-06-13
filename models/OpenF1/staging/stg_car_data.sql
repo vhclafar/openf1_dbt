@@ -1,13 +1,15 @@
--- models/staging/stg_car_data.sql
+
 select
-  driver_number,
-  session_key,
-  date_time,
-  speed,
-  n_gear,
-  throttle,
-  drs,
-  rpm,
-  source,
-  time
+    _id as car_data_id,
+    drs,
+    rpm,
+    _key as key,
+    date as datetime,
+    brake,
+    speed,
+    n_gear,
+    throttle,
+    meeting_key,
+    session_key,
+    driver_number
 from {{ source('openf1_livetiming', 'car_data') }}
