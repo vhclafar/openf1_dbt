@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: openf1_livetiming
+    database: openf1-462616
+    schema: openf1_livetiming
+    tables:
+      - name: car_data
+      - name: drivers
+      - name: intervals
+      - name: laps
+      - name: location
+      - name: meetings
+      - name: pit
+      - name: position
+      - name: race_control
+      - name: sessions
+      - name: stints
+      - name: team_radio
