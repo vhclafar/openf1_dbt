@@ -6,14 +6,53 @@ sources:
     schema: openf1_livetiming
     tables:
       - name: car_data
+        description: Telemetry data including speed, RPM, throttle, and other car-related metrics.
       - name: drivers
+        description: Metadata about drivers participating in the session.
       - name: intervals
+        description: Timing intervals between cars.
       - name: laps
+        description: Lap-by-lap performance data.
       - name: location
+        description: GPS-based location information.
       - name: meetings
+        description: Race weekend meeting/session metadata.
       - name: pit
+        description: Pit stop data.
       - name: position
+        description: Track position data.
       - name: race_control
+        description: Race control messages.
       - name: sessions
+        description: Information about F1 sessions (FP1, Quali, Race, etc.).
       - name: stints
+        description: Stint data showing tyre usage over time.
       - name: team_radio
+        description: Team radio messages.
+      - name: weather
+        description: Weather data logged during sessions.
+
+models:
+  - name: stg_car_data
+    description: "Cleaned and transformed car telemetry data from raw OpenF1 source"
+    columns:
+      - name: driver_number
+        description: "Driver identifier"
+      - name: session_key
+        description: "Unique session key"
+      - name: date
+        description: "Date of the session"
+      - name: time
+        description: "Time of the sample"
+      - name: speed
+        description: "Recorded speed in km/h"
+      - name: n_gear
+        description: "Current gear number"
+      - name: throttle
+        description: "Throttle input percentage"
+      - name: drs
+        description: "DRS activation status"
+      - name: rpm
+        description: "Engine RPM"
+      - name: source
+        description: "Data source name"
