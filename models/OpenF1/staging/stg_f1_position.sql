@@ -1,6 +1,7 @@
 select
-     session_key,
+    session_key,
     driver_number,
     position,
-    date
+    TIMESTAMP(date) as date,
+    DATE(TIMESTAMP(date)) AS date_only
 from {{ source('openf1_livetiming', 'position') }}
