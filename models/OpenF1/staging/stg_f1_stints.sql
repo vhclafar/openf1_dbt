@@ -1,10 +1,10 @@
 select
-    JSON_EXTRACT_SCALAR(compound, '$') AS compound,
-    driver_number,
-    lap_end,
-    lap_start,
-    meeting_key,
-    session_key,
-    stint_number,
-    tyre_age_at_start
-FROM {{source('openf1_livetiming', 'stints')}}
+    JSON_EXTRACT_SCALAR(s.compound, '$') AS compound,
+    s.driver_number,
+    s.lap_end,
+    s.lap_start,
+    s.meeting_key,
+    s.session_key,
+    s.stint_number,
+    s.tyre_age_at_start
+FROM {{source('openf1_livetiming', 'stints')}} as s
