@@ -1,6 +1,6 @@
 select 
     air_temperature,
-    date,
+    TIMESTAMP(date) as date,
     humidity,
     meeting_key,
     pressure,

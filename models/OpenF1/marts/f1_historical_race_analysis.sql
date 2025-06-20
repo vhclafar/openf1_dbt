@@ -32,7 +32,7 @@ lap_metrics AS (
     LEFT JOIN {{ ref('stg_f1_intervals') }} i
         ON i.session_key = l.session_key
         AND i.driver_number = l.driver_number
-        AND DATE_TRUNC('SECOND', i.date) BETWEEN l.date_start AND l.date_end
+        AND DATE_TRUNC(i.date_timestamp, SECOND) BETWEEN l.date_start AND l.date_end
     LEFT JOIN {{ ref('int_lap_positions') }} sp
         ON l.session_key = sp.session_key
         AND l.driver_number = sp.driver_number

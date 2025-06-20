@@ -7,8 +7,8 @@ WITH positions AS (
         l.lap_number,
         l.date_start,
         l.date_end,
-        ABS(TIMESTAMP_DIFF(second, p.date, l.date_start)) AS start_time_diff,
-        ABS(TIMESTAMP_DIFF(second, p.date, l.date_end)) AS end_time_diff
+        ABS(TIMESTAMP_DIFF(p.date, l.date_start, SECOND)) AS start_time_diff,
+        ABS(TIMESTAMP_DIFF(p.date, l.date_end, SECOND)) AS end_time_diff
     FROM {{ ref('stg_f1_position') }} p
     JOIN {{ ref('stg_f1_laps') }} l
         ON p.session_key = l.session_key
